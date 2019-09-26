@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -20,3 +16,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+.app-container{
+  margin: 90px auto 0 auto;
+  max-width: 1000px;
+
+}
+
+.jumbotron{
+  background: white !important;
+  padding: 2rem, 2rem !important;
+}
+
+/* .carousel{
+  padding-top: 100px;
+} */
+
+.carousel-item{
+  width: 540px;
+  height: 400px;
+}
+
+

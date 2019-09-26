@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // MUI
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
@@ -21,11 +23,12 @@ const theme = createMuiTheme(themeFile);
 
 class App extends Component {
   render(){
+    
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
             <Navbar/>
-            <div className="container">
+            <div className="app-container">
               <Switch>
                 <Route exact path="/" component={home}/>
                 <Route exact path="/tours" component={tours}/>
