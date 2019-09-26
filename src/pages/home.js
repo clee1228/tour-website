@@ -6,17 +6,11 @@ import Button from 'react-bootstrap/Button';
 import Container from '@material-ui/core/Container';
 
 
-
 class home extends Component {
     render() {
         return (
             
                <Container>
-                   
-
-
-              
-
                 <Carousel/>
                 <Jumbotron>
                 <h1>Hello, world!</h1>

@@ -2,15 +2,11 @@ import React, { Component, Fragment } from 'react'
 import {Link} from 'react-router-dom';
 
 // Material-UI 
-import clsx from 'clsx';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { fade } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
-import { spacing } from '@material-ui/system';
 import IconButton from '@material-ui/core/IconButton';
 
 
@@ -37,14 +33,6 @@ const styles = (theme) => ({
         zIndex: theme.zIndex.drawer + 1,  
     },
     toolbar: theme.mixins.toolbar,
-    gutters: {
-        paddingLeft: theme.spacing(4),
-        paddingRight: theme.spacing(4),
-    },
-    toolbarLinks:{
-        position: 'relative',
-        align: 'center'
-    },
     drawerPaper: {
         width: drawerWidth,
     },
@@ -119,7 +107,7 @@ class Navbar extends Component {
                                 style={{ backgroundColor: 'transparent'}}
                                 size="large"
                                 component={Link}
-                                to="/login">Tours</Button>
+                                to="/tours">Tours</Button>
 
                             <Button 
                                 color="inherit"
@@ -136,7 +124,7 @@ class Navbar extends Component {
                                 style={{ backgroundColor: 'transparent' }}
                                 component={Link} 
                                 size="large"
-                                to="/signup">Contact Us</Button>
+                                to="/contact">Contact Us</Button>
                                </div>
                            
                         </Toolbar>
