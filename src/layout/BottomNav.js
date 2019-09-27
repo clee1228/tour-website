@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Divider from '@material-ui/core/Divider';
 

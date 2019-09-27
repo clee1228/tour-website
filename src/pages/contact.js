@@ -8,8 +8,6 @@ class contact extends Component {
         return (
             <Container>
                   <ContactForm/>
-
-
             </Container>
            
 

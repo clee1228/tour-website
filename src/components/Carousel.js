@@ -41,8 +41,9 @@ class Carousel extends Component {
                     alt=""
                     />
                     <PicCarousel.Caption>
-                    <h3>San Francisco</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h4>San Francisco</h4>
+                    <p>              </p>
+                    {/* <p>A cultural and financial centre of the western United States and one of the country's most cosmopolitan cities.</p> */}
                     </PicCarousel.Caption>
                 </PicCarousel.Item>
 
@@ -56,37 +57,31 @@ class Carousel extends Component {
 
                     />
                     <PicCarousel.Caption>
-                    <h3>Yosemite Valley</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h4>Yosemite Valley</h4>
+                    {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </PicCarousel.Caption>
                 </PicCarousel.Item>
 
                 <PicCarousel.Item>
                     <img
-                    // width={400}
-                    // height={300}
                     className="d-block w-100"
                     src={napa}
                     alt=""
                     
                     />
                     <PicCarousel.Caption>
-                    <h3>Napa Valley</h3>
+                    <h4>Napa Valley</h4>
                     </PicCarousel.Caption>
                 </PicCarousel.Item>
 
                 <PicCarousel.Item>
                     <img
-                    // style={{ width: '640px', height:'300'}}
-                    // width={400}
-                    // height={300}
                     className="d-block w-100"
                     src={monterey}
                     alt=""
-                    
                     />
                     <PicCarousel.Caption>
-                    <h3>Monterey</h3>
+                    <h4>Monterey Bay</h4>
                     </PicCarousel.Caption>
                 </PicCarousel.Item>
                 </PicCarousel>

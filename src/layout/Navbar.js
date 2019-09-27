@@ -10,15 +10,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 
 
-
-//Icons
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DropDownIcon from '@material-ui/icons/ArrowDropDown';
-
-//Boostrap
+//Bootstrap
 import NaviBar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
-
 
 
 const drawerWidth = 240;
