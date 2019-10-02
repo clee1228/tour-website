@@ -7,12 +7,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-
-
-//Bootstrap
-import NaviBar from 'react-bootstrap/Navbar';
-import Dropdown from 'react-bootstrap/Dropdown';
 
 
 const drawerWidth = 240;
@@ -77,8 +71,8 @@ class Navbar extends Component {
             <Fragment> 
             <div className={classes.root}>
             
-                <AppBar elevation={0} position="absolute" className="classes.appBar" color="#fff"> 
-                    <Toolbar disableGutters="true" classes={{root: classes.toolbar}}>
+                <AppBar elevation={0} position="absolute" className="classes.appBar" color="inherit"> 
+                    <Toolbar classes={{root: classes.toolbar}}>
                             <Typography className={classes.title} variant="h6" noWrap>
                                             SF Korean Tour
                             </Typography>

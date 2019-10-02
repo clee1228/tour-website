@@ -2,14 +2,17 @@ import React, { Component, Fragment} from 'react';
 import './../App.css';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
-import axios from 'axios';
 import * as emailjs from 'emailjs-com'
+
+
+//React-animations
+import { bounceInDown } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 
 
 //Bootstrap
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 //MUI
@@ -44,8 +47,23 @@ const styles = (theme) => ({
     },
     name:{
         height: 5,
+    },
+    thankYou:{
+        height: '600px',
+        paddingTop: '120px',
+        textAlign: 'center',
     }
 });
+
+
+
+const animate = {
+    bounceInDown: {
+      animation: '1.5s',
+      animationName: Radium.keyframes(bounceInDown, 'bounceInDown')
+    }
+}
+
 
 
 class ContactForm extends Component {
@@ -102,18 +120,18 @@ class ContactForm extends Component {
             this.resetForm()
         };
 
-        resetForm() {
-            this.setState({
-                firstName: '',
-                lastName: '', 
-                email: '', 
-                location: '',
-                numPpl: '',
-                selectedDate: '',
-                subject: '',
-                message: '',
-            })
-          }
+    resetForm() {
+        this.setState({
+            firstName: '',
+            lastName: '', 
+            email: '', 
+            location: '',
+            numPpl: '',
+            selectedDate: '',
+            subject: '',
+            message: '',
+        })
+        }
         
 
     handleDateClick = (date) => {
@@ -141,10 +159,9 @@ class ContactForm extends Component {
         const { classes } = this.props;
         return (
             <Fragment>
-
                 { !this.state.mailSent? (
                     <Fragment>
-                     <Typography className={classes.title} gutterBottom="true" variant="h4">
+                     <Typography className={classes.title}  variant="h4">
                      Contact Us
                     </Typography>
                      <div style={{padding: '18px', border: '1px solid rgba(0, 0, 0, 0.05)', borderRadius: '15px'}}>
@@ -276,9 +293,13 @@ class ContactForm extends Component {
                  </Fragment>
 
                 ): (
-                        <div style={{height: '600px',paddingTop: '120px', textAlign: 'center'}}>
+
+                    <StyleRoot>
+                         <div className={classes.thankYou} style={animate.bounceInDown}>
                             <h1 style={{fontSize:'70px'}}>Thank you for contacting us.</h1>
                         </div>
+                    </StyleRoot>
+
                  
                 )}
                

@@ -6,9 +6,9 @@ import yosemite from './images/yosemite.jpg'
 import napa from './images/napa.jpg'
 import './../App.css'
 
-const styles = (theme) => ({
-    ...theme.spreadThis,
-});
+// const styles = (theme) => ({
+//     ...theme.spreadThis,
+// });
 
 
 class Carousel extends Component {

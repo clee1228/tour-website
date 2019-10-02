@@ -1,6 +1,5 @@
 
 import React, { Component, Fragment } from 'react'
-import {Link} from 'react-router-dom';
 
 //MUI
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -10,7 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Divider from '@material-ui/core/Divider';
 
 //Icons
-import IconButton from '@material-ui/core/IconButton';
+
 
 const styles = (theme) => ({
     ...theme.spreadThis,
@@ -22,7 +21,6 @@ const styles = (theme) => ({
         height: '10px',
         width: '100%',
         display: 'flex',
-        // justifyContent: 'center',
         bottom: 0,
     },
     stickToBottom: {
@@ -56,6 +54,10 @@ const styles = (theme) => ({
           display: 'none',
         },
     },
+    bottomText:{
+        fontSize: '12px',
+        paddingLeft: '10px'
+    }
 });
 
 class BottomNav extends Component {
@@ -68,12 +70,14 @@ class BottomNav extends Component {
                 <Divider />
                 <BottomNavigation classes={{root: classes.bottomNav}}>
                     <Toolbar classes={{root: classes.toolbar}}>
-                    <Typography className="classes.title">hello </Typography>
+                    <Typography className="classes.title"> 
+                        <b>SF Korean Tour</b>
+                     </Typography>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                    <Typography>hello </Typography>
-                    <Typography>hello </Typography>
-                    <Typography>hello </Typography>
+                    <Typography className={classes.bottomText}> lsb6418@gmail.com | </Typography>
+                    <Typography className={classes.bottomText}> hello | </Typography>
+                    <Typography className={classes.bottomText}> hello </Typography>
                     </div>
 
                     </Toolbar>
