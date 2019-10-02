@@ -24,6 +24,8 @@ import contact from './pages/contact';
 const theme = createMuiTheme(themeFile);
 
 
+
+
 class App extends Component {
   render(){
     
@@ -39,8 +41,8 @@ class App extends Component {
                 <Route exact path="/contact" component={contact}/>
               </Switch>
             </div> 
-            {/* <Divider />
-            <BottomNav/> */}
+            <Divider />
+            <BottomNav/>
         </Router>
       </MuiThemeProvider>
      

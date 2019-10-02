@@ -1,8 +1,8 @@
 import React, { Component, Fragment} from 'react';
 import './../App.css';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+
 
 //Bootstrap
 import Form from 'react-bootstrap/Form';
@@ -32,16 +32,47 @@ const styles = (theme) => ({
     calendarButton:{
         padding: 0,
         display: 'flex',
-    }
+    },
+    half:{
+        width: '50%',
+        paddingTop: 5,
+        paddingRight: 10,
+        height: '60px',
+        margin: '10px auto 10px auto'
+    },
+    name:{
+        height: 5,
+    
+     
+    },
 });
-
 
 
 class ContactForm extends Component {
     state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        location: '',
+        numPpl: '',
+        subject: '',
+        message: '',
         selectedDate: null,
         calendar: false,
+        validated: false,
+        mailSent: false,
     };
+
+    handleSubmit = (event) =>{
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          this.setState({ validated: true});
+        }
+       
 
 
     handleDateClick = (date) => {
@@ -56,6 +87,12 @@ class ContactForm extends Component {
     openCalendar = () => {
         this.setState({calendar: true})
     }
+
+    handleChange = (event) =>{ 
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    };
    
 
     render() {
@@ -67,89 +104,145 @@ class ContactForm extends Component {
                     Contact Us
                 </Typography>
                 <div style={{padding: '18px', border: '1px solid rgba(0, 0, 0, 0.05)', borderRadius: '15px'}}>
-
-             
-                <Form>
+                    <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                     <Form.Group>
                     <Form.Label>Name</Form.Label>
                         <Form.Row>
                             <Col>
-                            <Form.Control placeholder="First name" />
+                            <Form.Control 
+                                required
+                                type="text"
+                                name="firstName"
+                                onChange={this.handleChange}
+                                placeholder="First Name" />
                             </Col>
                             <Col>
-                            <Form.Control placeholder="Last name" />
+                            <Form.Control
+                                required
+                                type="text"
+                                name="lastName"
+                                onChange={this.handleChange}
+                                placeholder="Last Name" />
                             </Col>
                         </Form.Row>
                     </Form.Group>
                     
                     <Form.Group>
                         <Form.Label>E-mail Address</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
+                        <Form.Control 
+                            required
+                            type="email" 
+                            name="email"
+                            onChange={this.handleChange}
+                            placeholder="name@example.com" />
                     </Form.Group>
+
                     <Form.Group>
                         <Form.Label>Tour Location</Form.Label>
-                        <Form.Control as="select">
+                        <Form.Control 
+                            name="location"
+                            onChange={this.handleChange}
+                            required
+                            as="select">
                         <option>Select tour location...</option>
                         <option>Monterey Bay</option>
                         <option>Napa Valley</option>
                         <option>San Francisco</option>
                         <option>Yosemite</option>
-                      
                         </Form.Control>
+                        <Form.Control.Feedback type="invalid">
+                        Please choose a location.
+                        </Form.Control.Feedback>
                     </Form.Group>
 
-                    <Form.Group >
-                        
-                        <Form.Label>Choose Starting Date</Form.Label>
-                        <Form.Row>
-                            <Col>
+                    <Form.Group>
+                            <Form.Label># of People</Form.Label>
                             <Form.Control 
+                                name="numPpl"
+                                onChange={this.handleChange}
+                                required
+                                as="select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </Form.Control>
+                            <Form.Control.Feedback type="invalid">
+                            Please choose number of people.
+                            </Form.Control.Feedback>
+                        </Form.Group>
+
+                    <Form.Group>
+                    <Form.Label>Select Starting Date</Form.Label>
+                        <Form.Row>
+                        
+                        <Col>
+                            <Form.Control
                                 type="textarea" 
                                 placeholder={this.state.selectedDate}/>
-                            </Col>
-                            <Col>
-                            <IconButton
+                            
+                        </Col>
+                        <Col>
+                             <IconButton
                                 color="inherit"
                                 onClick={this.openCalendar}
                                 className={classes.calendarIconButton}>
-                                     <CalendarTodayIcon
-                                     className={classes.calendarButton}
-                                     />
+                                    <CalendarTodayIcon
+                                    className={classes.calendarButton}/>
                             </IconButton>
-                           
-                            </Col>
+                        </Col>
+
                         </Form.Row>
 
-                       
-                            <Dialog onClose={this.closeCalendar} open={calendar}>
+                        <Dialog onClose={this.closeCalendar} open={calendar}>
                                 <DayPicker onDayClick={this.handleDateClick}/>
                             </Dialog>
-                
-                        
-                       
+                            <Form.Control.Feedback type="invalid">
+                        Please choose starting date.
+                        </Form.Control.Feedback>
                     </Form.Group>
 
-
-                      
+                    
+                           
 
                     <Form.Group >
                         <Form.Label>Subject</Form.Label>
-                        <Form.Control type="textarea" />
+                        <Form.Control 
+                            required
+                            name="subject"
+                            onChange={this.handleChange}
+                            type="textarea" />
                     </Form.Group>
 
 
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Group>
                         <Form.Label>Message</Form.Label>
-                        <Form.Control as="textarea" rows="3" />
+                        <Form.Control 
+                            name="message"
+                            onChange={this.handleChange}
+                            required
+                            as="textarea" 
+                            rows="3" />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" size="lg" type="submit" block>
                         Submit
                     </Button>
                 </Form>
                 </div>
-            </Fragment>
+
+            <div>
+            {this.state.mailSent &&
+                <div>Thank you for contcting us.</div>
+            }
+            </div>
+            </Fragment> 
+              
            
+
+             
+              
         )
     }
 }

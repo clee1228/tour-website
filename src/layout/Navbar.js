@@ -80,7 +80,7 @@ class Navbar extends Component {
                 <AppBar elevation={0} position="absolute" className="classes.appBar" color="#fff"> 
                     <Toolbar disableGutters="true" classes={{root: classes.toolbar}}>
                             <Typography className={classes.title} variant="h6" noWrap>
-                                            Sillicon Valley Tour
+                                            SF Korean Tour
                             </Typography>
                             <div className={classes.grow} />
                             <div className={classes.sectionDesktop}>
